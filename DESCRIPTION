@@ -1,13 +1,12 @@
 Package: griffen
-Title: What the Package Does (One Line, Title Case)
+Title: Some Useful Custom R Functions
 Version: 0.0.0.9000
 Authors@R:
     person(given = "Andrew",
            family = "Griffen",
            role = c("aut", "cre"),
-           email = "andrew.griffen@gmail.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "andrew.griffen@gmail.com")
+Description: Functions that I use frequently in my code including to adjust the display, an increment function, and a function to move variables to the first column in a data frame or tibble.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
