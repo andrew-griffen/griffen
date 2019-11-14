@@ -1,0 +1,16 @@
+Package: griffen
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R:
+    person(given = "Andrew",
+           family = "Griffen",
+           role = c("aut", "cre"),
+           email = "andrew.griffen@gmail.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    dplyr
+RoxygenNote: 7.0.0
