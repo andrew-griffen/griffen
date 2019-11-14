@@ -1,4 +1,4 @@
-#' A Tibble preference function
+#' A tibble preference function
 #'
 #' This function makes tibbles wider to fit system environment
 #' @param

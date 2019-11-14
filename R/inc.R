@@ -1,4 +1,4 @@
-#' A increment function
+#' An increment function
 #'
 #' This function increments an index in a table
 #' @param x integer

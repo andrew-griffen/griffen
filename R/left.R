@@ -1,8 +1,8 @@
-#' Some custom dplyr commands that I use a lot
+#' An additional dplyr verb
 #'
-#' front() either var or the last column to the first column
+#' This moves either var or the last column to the first column
 #' @param
-#' @keywords dplyr,
+#' @keywords dplyr
 #' @export
 #' @examples
 #' tibble_display()
