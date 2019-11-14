@@ -2,14 +2,14 @@
 % Please edit documentation in R/left.R
 \name{left}
 \alias{left}
-\title{Some custom dplyr commands that I use a lot}
+\title{An additional dplyr verb}
 \usage{
 left(df, var)
 }
 \description{
-front() either var or the last column to the first column
+This moves either var or the last column to the first column
 }
 \examples{
 tibble_display()
 }
-\keyword{dplyr,}
+\keyword{dplyr}

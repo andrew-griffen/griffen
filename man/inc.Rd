@@ -2,7 +2,7 @@
 % Please edit documentation in R/inc.R
 \name{inc}
 \alias{inc}
-\title{A increment function}
+\title{An increment function}
 \usage{
 inc(x)
 }

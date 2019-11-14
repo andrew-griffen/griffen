@@ -2,7 +2,7 @@
 % Please edit documentation in R/tibble_display.R
 \name{tibble_display}
 \alias{tibble_display}
-\title{A Tibble preference function}
+\title{A tibble preference function}
 \usage{
 tibble_display()
 }
