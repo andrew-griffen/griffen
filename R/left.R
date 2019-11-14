@@ -5,7 +5,8 @@
 #' @keywords dplyr
 #' @export
 #' @examples
-#' tibble_display()
+#' left(mtcars)
+
 left <- function(df,var){
 if(missing(var)){
   df <- df %>% dplyr::select(names(df)[length(df)],everything())

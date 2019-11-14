@@ -10,6 +10,6 @@ Description: Functions that I use frequently in my code including to adjust the 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports:
+Depends:
     dplyr
 RoxygenNote: 7.0.0

@@ -7,6 +7,7 @@
 #' @examples
 #' howWide=Sys.getenv("COLUMNS")
 #' wide_screen()
+
 wide_screen <- function(){
   num_cols <- Sys.getenv("COLUMNS")
   options(width=as.integer(num_cols))

@@ -10,6 +10,6 @@ left(df, var)
 This moves either var or the last column to the first column
 }
 \examples{
-tibble_display()
+left(mtcars)
 }
 \keyword{dplyr}
