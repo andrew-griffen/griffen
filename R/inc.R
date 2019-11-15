@@ -1,6 +1,6 @@
 #' An increment function
 #'
-#' This function increments an index in a table
+#' This function increments an index
 #' @param x integer
 #' @keywords
 #' @export
