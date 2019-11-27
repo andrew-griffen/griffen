@@ -10,7 +10,7 @@ inc(x)
 \item{x}{integer}
 }
 \description{
-This function increments an index in a table
+This function increments a counter
 }
 \examples{
 x <- 1
