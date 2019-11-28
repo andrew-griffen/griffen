@@ -1,5 +1,6 @@
 library(tidyverse)
 library(griffen)
+library(zoo)
 
 tbl1 <- tibble(id = c("1","2","3"), drew1 = c(1,2,3), drew2 = c(4,5,6), drew3 = c(7,8,9))
 tbl2 <- tibble(id = c(1,2,3), a = c(1,2,3), b = c(4,5,6) , c = c(7,8,9))
@@ -15,6 +16,10 @@ tbl5 <- tbl5 %>% mutate(id = 1:nrow(tbl5)) %>% left()
 
 
 state_population <- read_csv("state_population.csv")
+state_population <- state_population %>% pivot_longer(-state,names_to="year",values_to="population")
+state_population <- state_population %>% mutate(year = as.integer(year))
+state_population <- state_population %>% select(state) %>% distinct() %>% crossing(tibble(year=1970:2014)) %>% full_join(state_population) %>% arrange(state,year)
+state_population <- state_population %>% filter(year<=2010) %>% group_by(state) %>% mutate(population = na.approx(population,year))
 
 usethis::use_data(tbl1,overwrite=TRUE)
 usethis::use_data(tbl2,overwrite=TRUE)
