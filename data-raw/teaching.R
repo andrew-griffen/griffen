@@ -14,8 +14,11 @@ tbl5 <- as_tibble(tbl5)
 tbl5 <- tbl5 %>% mutate(id = 1:nrow(tbl5)) %>% left()
 
 
+state_population <- read_csv("state_population.csv")
+
 usethis::use_data(tbl1,overwrite=TRUE)
 usethis::use_data(tbl2,overwrite=TRUE)
 usethis::use_data(tbl3,overwrite=TRUE)
 usethis::use_data(tbl4,overwrite=TRUE)
 usethis::use_data(tbl5,overwrite=TRUE)
+usethis::use_data(state_population,overwrite=TRUE)
