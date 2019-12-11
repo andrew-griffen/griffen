@@ -16,7 +16,7 @@ tbl5 <- tbl5 %>% mutate(id = 1:nrow(tbl5)) %>% left()
 
 
 state_population <- read_csv("state_population.csv")
-state_population <- state_population %>% pivot_longer(-state,names_to="year",values_to="population")
+state_population <- state_population %>% pivot_longer(-c("state","region"),names_to="year",values_to="population")
 state_population <- state_population %>% mutate(year = as.integer(year))
 state_population <- state_population %>% select(state) %>% distinct() %>% crossing(tibble(year=1970:2014)) %>% full_join(state_population) %>% arrange(state,year)
 state_population <- state_population %>% filter(year<=2010) %>% group_by(state) %>% mutate(population = na.approx(population,year))
