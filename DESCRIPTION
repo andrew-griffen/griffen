@@ -13,3 +13,5 @@ LazyData: true
 Depends:
     dplyr
 RoxygenNote: 7.0.2
+Imports: 
+    griffen
