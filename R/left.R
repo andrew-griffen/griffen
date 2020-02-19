@@ -8,10 +8,10 @@
 #' left(mtcars)
 
 left <- function(df,var){
-if(missing(var)){
+if(missing(...)){
   df <- df %>% dplyr::select(names(df)[length(df)],everything())
 }else{
-  df <- df %>% dplyr::select({{var}},everything())
+  df <- df %>% dplyr::select(...,everything())
 }
 return(df)
 }
