@@ -4,7 +4,10 @@
 \alias{left}
 \title{An additional dplyr verb}
 \usage{
-left(df, var)
+left(df, ...)
+}
+\value{
+data.frame
 }
 \description{
 This moves either var or the last column to the first column
