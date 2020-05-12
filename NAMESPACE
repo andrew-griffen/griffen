@@ -2,6 +2,7 @@
 
 export(inc)
 export(left)
+export(print_all)
 export(tibble_display)
 export(wide_screen)
 importFrom(dplyr,everything)
