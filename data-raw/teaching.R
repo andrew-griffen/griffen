@@ -5,7 +5,7 @@ library(fExtremes)
 library(modelr)
 library(tidyverse)
 
-filter <- dplyr::filter 
+filter <- dplyr::filter
 
 tbl1 <- tibble(id = c("1","2","3"), drew1 = c(1,2,3), drew2 = c(4,5,6), drew3 = c(7,8,9))
 tbl2 <- tibble(id = c(1,2,3), a = c(1,2,3), b = c(4,5,6) , c = c(7,8,9))
@@ -40,7 +40,7 @@ form_df <- form_df %>% mutate(D = fct_relevel(D,"treatment"))
 #number of individuals
 n <- 4000
 draw_bart_data <- function(n){
-  
+
   #draw discrete choice data
   price_car <- rlnorm(n,meanlog=1,sdlog=1)
   price_metro <- rlnorm(n,meanlog=0,sdlog=1)
@@ -51,7 +51,7 @@ draw_bart_data <- function(n){
   time_bus <- rlnorm(n,meanlog=0,sdlog=1)
   wage <- rlnorm(n,meanlog=5,sdlog=1)
 
-  pre_bart <- tibble(id = 1:n, price_car, price_metro, price_bus,time_car,time_bus,time_metro,wage)  
+  pre_bart <- tibble(id = 1:n, price_car, price_metro, price_bus,time_car,time_bus,time_metro,wage)
 
   price <- pre_bart %>% select(id,wage,starts_with("price")) %>% pivot_longer(starts_with("price"),names_to="mode",values_to="price")
   price <- price %>% mutate(mode = str_replace(mode,"price_",""))
@@ -60,7 +60,7 @@ draw_bart_data <- function(n){
   time <- time %>% mutate(mode = str_replace(mode,"time_",""))
 
   bart <- inner_join(price,time) %>% select(id,mode,price,time,wage)
-  
+
   return(bart)
 }
 
@@ -115,7 +115,7 @@ usethis::use_data(tbl4,overwrite=TRUE)
 usethis::use_data(tbl5,overwrite=TRUE)
 usethis::use_data(state_population,overwrite=TRUE)
 
-usethis::use_data(pre_bart,overwrite=TRUE)
-usethis::use_data(post_bart,overwrite=TRUE)
+# usethis::use_data(pre_bart,overwrite=TRUE)
+# usethis::use_data(post_bart,overwrite=TRUE)
 usethis::use_data(form_df,overwrite=TRUE)
 
