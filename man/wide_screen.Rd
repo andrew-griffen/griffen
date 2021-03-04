@@ -2,7 +2,7 @@
 % Please edit documentation in R/wide_screen.R
 \name{wide_screen}
 \alias{wide_screen}
-\title{A screen function}
+\title{Screen and tibble display preference function}
 \usage{
 wide_screen()
 }

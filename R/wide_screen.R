@@ -1,4 +1,4 @@
-#' A screen function
+#' Screen and tibble display preference function
 #'
 #' This function makes the screen wider given system environment
 #' @param
@@ -11,4 +11,7 @@
 wide_screen <- function(){
   num_cols <- Sys.getenv("COLUMNS")
   options(width=as.integer(num_cols))
+  options(tibble.print_min = 30)
+  options(scipen=999)
+  options(pillar.min_chars = 30)
 }
