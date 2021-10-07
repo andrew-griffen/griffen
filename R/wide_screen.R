@@ -11,7 +11,7 @@
 wide_screen <- function(){
   num_cols <- Sys.getenv("COLUMNS")
   options(width=as.integer(num_cols))
-  options(tibble.print_min = 30)
+  options(tibble.print_min = 15)
   options(scipen=999)
   options(pillar.min_chars = 30)
 }
