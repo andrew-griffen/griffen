@@ -1,4 +1,5 @@
 library(tidyverse)
+library(dplyr)
 library(griffen)
 library(zoo)
 library(fExtremes)
@@ -107,6 +108,10 @@ post_bart %>% group_by(mode) %>% summarise(mean(d))
 pre_bart <- pre_bart %>% mutate(mode = factor(mode,levels=c("car","metro","bus")))
 post_bart <- post_bart %>% mutate(mode = factor(mode,levels=c("car","metro","bus")))
 
+cps <- read_csv("cps.csv")
+cps <- cps[sample(1:nrow(cps),.2*nrow(cps)),]
+
+usethis::use_data(cps,overwrite=TRUE)
 
 usethis::use_data(tbl1,overwrite=TRUE)
 usethis::use_data(tbl2,overwrite=TRUE)
