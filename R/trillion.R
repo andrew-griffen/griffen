@@ -7,5 +7,5 @@
 #' @examples
 #' trillion(1)
 
-trillion <- function(x){x*100000000000}
+trillion <- function(x){x*1000000000000}
 
