@@ -31,9 +31,9 @@ state_population <- state_population %>% dplyr::filter(year<=2010) %>% group_by(
 state_population <- state_population %>% left_join(region)
 
 n <- 3
-form_df <- form_df %>% mutate(D = factor(D))
 form_df <- tibble(y = round(10*runif(3)), x1 = round(10*runif(3)), x2 = round(10*runif(3)), D = c("treated","control","treated") )
-form_df <- form_df %>% mutate(D = fct_relevel(D,"treatment"))
+form_df <- form_df %>% mutate(D = factor(D))
+form_df <- form_df %>% mutate(D = fct_relevel(D,"treated"))
 
 # form_df <- tibble(y = c(1,2,3), x1 = c(1,6,1), x2 = c(6,1,4), D = c("treated","control","treated"))
 # form_df <- form_df %>% mutate(D = fct_relevel(D,"treatment"))
@@ -110,6 +110,11 @@ post_bart <- post_bart %>% mutate(mode = factor(mode,levels=c("car","metro","bus
 
 cps <- read_csv("cps.csv")
 cps <- cps[sample(1:nrow(cps),.2*nrow(cps)),]
+
+boston <- read_csv("boston.csv")
+usethis::use_data(boston,overwrite=TRUE)
+heights <- read_csv("heights.csv")
+usethis::use_data(heights,overwrite=TRUE)
 
 usethis::use_data(cps,overwrite=TRUE)
 
