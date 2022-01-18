@@ -1,6 +1,6 @@
 library(tidyverse)
 library(dplyr)
-library(griffen)
+# library(griffen)
 library(zoo)
 library(fExtremes)
 library(modelr)
@@ -110,6 +110,9 @@ post_bart <- post_bart %>% mutate(mode = factor(mode,levels=c("car","metro","bus
 
 cps <- read_csv("cps.csv")
 cps <- cps[sample(1:nrow(cps),.2*nrow(cps)),]
+
+credit <- read_csv("credit.csv")
+usethis::use_data(credit,overwrite=TRUE)
 
 boston <- read_csv("boston.csv")
 usethis::use_data(boston,overwrite=TRUE)
