@@ -12,4 +12,4 @@ This function creates a trillion size number
 \examples{
 trillion(1)
 }
-\keyword{billion}
+\keyword{trillion}

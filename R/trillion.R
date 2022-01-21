@@ -2,7 +2,7 @@
 #'
 #' This function creates a trillion size number
 #' @param
-#' @keywords billion
+#' @keywords trillion
 #' @export
 #' @examples
 #' trillion(1)
