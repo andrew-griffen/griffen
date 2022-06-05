@@ -4,6 +4,7 @@
 #' @param
 #' @keywords roundr
 #' @export
+#' @importFrom stringr str_trim
 #' @examples
 #' roundr(3.2)
 
