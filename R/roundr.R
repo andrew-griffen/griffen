@@ -8,15 +8,11 @@
 #' roundr(3.2)
 
 roundr <- function(x){
-  if(is.null(x) | is.na(x) | is.nan(x)){return(x <- NA)}
-  if(abs(x)<100){
-    x <- format(round(x, 2), nsmall = 2)
-  }else{
-    if(abs(x)<1000){
-      x <- format(round(x, 1), nsmall = 1)
-    }else{
-      x <- format(round(x, 0),big.mark=",",scientific=FALSE, nsmall = 0)
-    }
-  }
+  x = case_when(abs(x) >= 100 ~ format(round(x,digits = 0), nsmall = 0),
+                abs(x) >= .1 ~ format(round(x,digits = 2), nsmall = 2),
+                abs(x) < .1 ~ format(round(x,digits = 3), nsmall = 3),
+                TRUE ~ NA_character_
+  )
+  x = str_trim(x)
   return(x)
 }
