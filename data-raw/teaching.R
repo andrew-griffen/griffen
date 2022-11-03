@@ -1,10 +1,5 @@
-library(tidyverse)
-library(dplyr)
-library(griffen)
-library(zoo)
-library(fExtremes)
-library(modelr)
-library(tidyverse)
+library(pacman)
+p_load(tidyverse,dplyr,griffen,zoo,fExtremes,modelr,tidyverse)
 
 filter <- dplyr::filter
 
@@ -84,7 +79,6 @@ pre_bart <- pre_bart %>% mutate(u = v + e) %>% select(u,v,e,everything())
 pre_bart <- pre_bart %>% group_by(id) %>% mutate(max_u = max(u))
 pre_bart <- pre_bart %>% group_by(id) %>% mutate(d = ifelse(max_u==u,1L,0L))
 pre_bart <- pre_bart %>% select(-u,-v,-e,-max_u) %>% ungroup
-
 pre_bart <- bind_rows(pre_bart,pre_bart_bus) %>% arrange(id)
 
 #post-bart data
@@ -101,35 +95,43 @@ post_bart <- post_bart %>% group_by(id) %>% mutate(max_u = max(u))
 post_bart <- post_bart %>% group_by(id) %>% mutate(d = ifelse(max_u==u,1L,0L))
 post_bart <- post_bart %>% select(-u,-v,-e,-max_u) %>% ungroup
 
+# pre_bart %>% group_by(mode) %>% summarise(mean(d))
+# post_bart %>% group_by(mode) %>% summarise(mean(d))
 
-pre_bart %>% group_by(mode) %>% summarise(mean(d))
-post_bart %>% group_by(mode) %>% summarise(mean(d))
-
+#factors
 pre_bart <- pre_bart %>% mutate(mode = factor(mode,levels=c("car","metro","bus")))
 post_bart <- post_bart %>% mutate(mode = factor(mode,levels=c("car","metro","bus")))
 
+#cps
 cps <- read_csv("cps.csv")
 cps <- cps[sample(1:nrow(cps),.2*nrow(cps)),]
 
+#credit scores
 credit <- read_csv("credit.csv")
 credit <- credit %>% mutate(default = factor(default))
-usethis::use_data(credit,overwrite=TRUE)
 
+#oj
+oj <- read_csv("oj.csv")
+
+#boston
 boston <- read_csv("boston.csv")
-usethis::use_data(boston,overwrite=TRUE)
+
+#heights
 heights <- read_csv("heights.csv")
-usethis::use_data(heights,overwrite=TRUE)
 
-usethis::use_data(cps,overwrite=TRUE)
 
-usethis::use_data(tbl1,overwrite=TRUE)
-usethis::use_data(tbl2,overwrite=TRUE)
-usethis::use_data(tbl3,overwrite=TRUE)
-usethis::use_data(tbl4,overwrite=TRUE)
-usethis::use_data(tbl5,overwrite=TRUE)
-usethis::use_data(state_population,overwrite=TRUE)
+#save datasets into data folder
+save_datasets = function(...){
+  datasets_list <- lapply(eval(substitute(alist(...))),deparse)
+  files = lapply(datasets_list,function(x) paste0("../data/",x,".rda"))
+  mapply(save, list = datasets_list, file = files)
+  invisible(datasets_list)
+}
+save_datasets(boston,cps,credit,form_df,heights,oj,post_bart,pre_bart,state_population,tbl1,tbl2,tbl3,tbl4,tbl5)
 
-# usethis::use_data(pre_bart,overwrite=TRUE)
-# usethis::use_data(post_bart,overwrite=TRUE)
-usethis::use_data(form_df,overwrite=TRUE)
+
+
+
+
+
 

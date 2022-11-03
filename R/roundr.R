@@ -5,6 +5,7 @@
 #' @keywords roundr
 #' @export
 #' @importFrom stringr str_trim
+#' @importFrom dplyr case_when
 #' @examples
 #' roundr(3.2)
 
