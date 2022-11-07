@@ -14,4 +14,7 @@ wide_screen <- function(){
   options(tibble.print_min = 15)
   options(scipen=999)
   options(pillar.min_chars = 30)
+  options(pillar.min_title_chars = 20)
+  options(pillar.advice = FALSE)
+  options(pillar.max_footer_lines=1)
 }
