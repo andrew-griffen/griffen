@@ -119,6 +119,8 @@ boston <- read_csv("boston.csv")
 #heights
 heights <- read_csv("heights.csv")
 
+x <- tibble(key = c(1,2,3), val_x = c("x1","x2","x3"))
+y <- tibble(key = c(1,2,4), val_y = c("y1","y2","y3"))
 
 #save datasets into data folder
 save_datasets = function(...){
@@ -127,6 +129,7 @@ save_datasets = function(...){
   mapply(save, list = datasets_list, file = files)
   invisible(datasets_list)
 }
+save_datasets(x,y)
 save_datasets(boston,cps,credit,form_df,heights,oj,post_bart,pre_bart,state_population,tbl1,tbl2,tbl3,tbl4,tbl5)
 
 
