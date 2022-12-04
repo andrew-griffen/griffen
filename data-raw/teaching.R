@@ -125,6 +125,9 @@ y <- tibble(key = c(1,2,4), val_y = c("y1","y2","y3"))
 
 whales <- read_csv("whales.csv")
 comment(whales) <- "Sperm whales Gulf of California 2007-2008"
+# whale <- read_csv("Sperm whales Gulf of California 2007-2008 - Argos data.csv")
+whales <- whales %>% mutate(date = as.Date(timestamp)) %>% left()
+whales <- whales %>% arrange(timestamp) %>% distinct(date,.keep_all=TRUE)
 
 oecd <- read_csv("oecd.csv")
 
