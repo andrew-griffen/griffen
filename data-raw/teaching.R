@@ -128,6 +128,9 @@ comment(whales) <- "Sperm whales Gulf of California 2007-2008"
 
 oecd <- read_csv("oecd.csv")
 
+clark = read_csv("clark.csv")
+coges = read_csv("coges.csv")
+
 #save datasets into data folder
 save_datasets = function(...){
   datasets_list <- lapply(eval(substitute(alist(...))),deparse)
@@ -140,6 +143,7 @@ save_datasets(boston,cps,credit,form_df,heights,oj,post_bart,pre_bart,state_popu
 
 save_datasets(oecd,whales)
 
+save_datasets(clark,coges)
 
 
 
