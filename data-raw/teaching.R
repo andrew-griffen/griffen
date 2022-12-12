@@ -1,6 +1,14 @@
 library(pacman)
 p_load(tidyverse,dplyr,griffen,zoo,fExtremes,modelr,tidyverse)
 
+#save datasets into data folder
+save_datasets = function(...){
+  datasets_list <- lapply(eval(substitute(alist(...))),deparse)
+  files = lapply(datasets_list,function(x) paste0("../data/",x,".rda"))
+  mapply(save, list = datasets_list, file = files)
+  invisible(datasets_list)
+}
+
 filter <- dplyr::filter
 
 tbl1 <- tibble(id = c("1","2","3"), drew1 = c(1,2,3), drew2 = c(4,5,6), drew3 = c(7,8,9))
@@ -128,23 +136,19 @@ comment(whales) <- "Sperm whales Gulf of California 2007-2008"
 # whale <- read_csv("Sperm whales Gulf of California 2007-2008 - Argos data.csv")
 whales <- whales %>% mutate(date = as.Date(timestamp)) %>% left()
 whales <- whales %>% arrange(timestamp) %>% distinct(date,.keep_all=TRUE)
+whales %<>% rename(long = `location-long`, lat = `location-lat`, time = timestamp) %>% select(time,long,lat)
 
 oecd <- read_csv("oecd.csv")
 
 clark = read_csv("clark.csv")
 coges = read_csv("coges.csv")
 
-#save datasets into data folder
-save_datasets = function(...){
-  datasets_list <- lapply(eval(substitute(alist(...))),deparse)
-  files = lapply(datasets_list,function(x) paste0("../data/",x,".rda"))
-  mapply(save, list = datasets_list, file = files)
-  invisible(datasets_list)
-}
+
 save_datasets(x,y)
 save_datasets(boston,cps,credit,form_df,heights,oj,post_bart,pre_bart,state_population,tbl1,tbl2,tbl3,tbl4,tbl5)
 
-save_datasets(oecd,whales)
+save_datasets(oecd)
+save_datasets(whales)
 
 save_datasets(clark,coges)
 
