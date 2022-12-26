@@ -10,4 +10,4 @@ LazyData: true
 Depends:
     dplyr, magrittr, lubridate, ggplot2, stringr
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3

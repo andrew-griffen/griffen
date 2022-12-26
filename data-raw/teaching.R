@@ -1,5 +1,5 @@
 library(pacman)
-p_load(tidyverse,dplyr,griffen,zoo,fExtremes,modelr,tidyverse)
+p_load(tidyverse,dplyr,griffen,zoo,fExtremes,modelr,tidyverse,magrittr)
 
 #save datasets into data folder
 save_datasets = function(...){
@@ -131,6 +131,23 @@ x <- tibble(key = c(1,2,3), val_x = c("x1","x2","x3"))
 y <- tibble(key = c(1,2,4), val_y = c("y1","y2","y3"))
 
 
+
+japan_shp <- st_read('../../../Japan_Shapefiles/JPN_adm1.shp', stringsAsFactors = FALSE)
+japan_shp %<>% mutate(NAME_1=ifelse(NAME_1=="Naoasaki","Nagasaki",NAME_1))
+japan_shp %<>% mutate(NAME_1=ifelse(NAME_1=="Hyōgo","Hyogo",NAME_1))
+japan_shp %<>% mutate(prefecture = NAME_1)
+japan_shp %<>% select(prefecture,geometry)
+
+
+japan_travel <- read_csv("japan_travel.csv")
+japan_travel <- japan_travel %>% mutate(visited = ifelse(is.na(visited),"no","yes"))
+japan_travel$visited <- factor(japan_travel$visited,levels=c("yes","no"))
+
+
+# japan_shp <- japan_shp %>% left_join(japan_travel)
+# japan_shp$visited <- factor(japan_shp$visited,levels=c("yes","no"))
+
+
 whales <- read_csv("whales.csv")
 comment(whales) <- "Sperm whales Gulf of California 2007-2008"
 # whale <- read_csv("Sperm whales Gulf of California 2007-2008 - Argos data.csv")
@@ -152,6 +169,6 @@ save_datasets(whales)
 
 save_datasets(clark,coges)
 
-
+save_datasets(japan_travel,japan_shp)
 
 
