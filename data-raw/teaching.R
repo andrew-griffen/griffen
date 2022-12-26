@@ -1,5 +1,5 @@
 library(pacman)
-p_load(tidyverse,dplyr,griffen,zoo,fExtremes,modelr,tidyverse,magrittr)
+p_load(tidyverse,dplyr,griffen,zoo,fExtremes,modelr,tidyverse,magrittr,sf)
 
 #save datasets into data folder
 save_datasets = function(...){

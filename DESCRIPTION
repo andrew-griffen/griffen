@@ -8,6 +8,6 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends:
-    dplyr, magrittr, lubridate, ggplot2, stringr
+    dplyr, magrittr, lubridate, ggplot2, stringr, readr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
