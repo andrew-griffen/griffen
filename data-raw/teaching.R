@@ -157,7 +157,7 @@ whales <- whales %>% mutate(date = as.Date(timestamp)) %>% left()
 whales <- whales %>% arrange(timestamp) %>% distinct(date,.keep_all=TRUE)
 whales %<>% rename(long = `location-long`, lat = `location-lat`, time = timestamp) %>% select(time,long,lat)
 
-oecd <- read_csv("oecd.csv")
+#oecd <- read_csv("oecd.csv")
 
 clark = read_csv("clark.csv")
 coges = read_csv("coges.csv")
@@ -165,7 +165,7 @@ coges = read_csv("coges.csv")
 
 save_datasets(x,y)
 save_datasets(boston,credit,form_df,heights,oj,post_bart,pre_bart,state_population,tbl1,tbl2,tbl3,tbl4,tbl5)
-save_datasets(oecd)
+#save_datasets(oecd)
 save_datasets(whales)
 save_datasets(clark,coges)
 save_datasets(japan_travel,japan_shp)
