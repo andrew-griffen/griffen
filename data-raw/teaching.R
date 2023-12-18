@@ -9,7 +9,7 @@ save_datasets = function(...){
   invisible(datasets_list)
 }
 
-filter <- dplyr::filter
+filter <- dq8plyr::filter
 
 tbl1 <- tibble(id = c("1","2","3"), drew1 = c(1,2,3), drew2 = c(4,5,6), drew3 = c(7,8,9))
 tbl2 <- tibble(id = c(1,2,3), a = c(1,2,3), b = c(4,5,6) , c = c(7,8,9))
@@ -113,6 +113,8 @@ post_bart <- post_bart %>% mutate(mode = factor(mode,levels=c("car","metro","bus
 #cps
 cps <- read_csv("cps.csv")
 cps <- cps[sample(1:nrow(cps),.2*nrow(cps)),]
+cps %<>% mutate(year = as.integer(year))
+save_datasets(cps)
 
 #credit scores
 credit <- read_csv("credit.csv")
@@ -162,13 +164,9 @@ coges = read_csv("coges.csv")
 
 
 save_datasets(x,y)
-save_datasets(boston,cps,credit,form_df,heights,oj,post_bart,pre_bart,state_population,tbl1,tbl2,tbl3,tbl4,tbl5)
-
+save_datasets(boston,credit,form_df,heights,oj,post_bart,pre_bart,state_population,tbl1,tbl2,tbl3,tbl4,tbl5)
 save_datasets(oecd)
 save_datasets(whales)
-
 save_datasets(clark,coges)
-
 save_datasets(japan_travel,japan_shp)
-
 

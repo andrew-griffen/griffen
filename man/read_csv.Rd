@@ -9,8 +9,5 @@ read_csv(file, ..., show_col_types = FALSE)
 \description{
 Shuts up read_csv's incessant printing of crap
 }
-\examples{
-read_csv(file)
-}
 \keyword{na.rm}
 \keyword{read_csv}
