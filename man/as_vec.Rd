@@ -8,6 +8,8 @@ as_vec(vec, name = TRUE)
 }
 \arguments{
 \item{vec}{a vector}
+
+\item{name}{a logical}
 }
 \description{
 Prints a vector how you would write a vector

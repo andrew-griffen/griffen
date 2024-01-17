@@ -38,6 +38,7 @@ as_hori <- function(vec){
 #' Prints a vector how you would write a vector
 #'
 #' @param vec a vector
+#' @param name a logical
 #' @keywords as_vec
 #' @export
 #' @examples

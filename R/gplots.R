@@ -1,7 +1,6 @@
 #' A custom theme inspired by theme_ipsum
 #'
 #' This function print all rows of a data frame
-#' @param
 #' @keywords ggplot2, theme
 #' @importFrom ggplot2 theme element_text element_blank margin element_line ggplot geom_point aes
 #' @export

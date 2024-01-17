@@ -2,7 +2,7 @@
 #'
 #' This function increments a counter
 #' @param x integer
-#' @keywords
+#' @keywords increment
 #' @export
 #' @examples
 #' x <- 1

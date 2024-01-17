@@ -6,10 +6,13 @@
 \usage{
 million(x)
 }
+\arguments{
+\item{x}{a number}
+}
 \description{
 This function creates a million size number
 }
 \examples{
 million(1)
 }
-\keyword{billion}
+\keyword{million}

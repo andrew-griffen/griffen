@@ -16,3 +16,4 @@ This function increments a counter
 x <- 1
 inc(x)
 }
+\keyword{increment}

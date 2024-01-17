@@ -1,7 +1,6 @@
 #' Screen and tibble display preference function
 #'
 #' This function makes the screen wider given system environment
-#' @param
 #' @keywords screen width
 #' @export
 #' @examples
