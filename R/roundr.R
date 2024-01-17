@@ -1,7 +1,7 @@
 #' A rounding function
 #'
 #' custom rounding function: number of digits depends on size of number
-#' @param
+#' @param x a number
 #' @keywords roundr
 #' @export
 #' @importFrom stringr str_trim

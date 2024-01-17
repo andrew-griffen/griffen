@@ -4,7 +4,7 @@ NULL
 #' An additional dplyr verb
 #'
 #' This moves either var or the last column to the first column
-#' @param
+#' @param df a data frame
 #' @keywords dplyr
 #' @importFrom dplyr select everything
 #' @export

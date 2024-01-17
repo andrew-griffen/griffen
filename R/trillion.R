@@ -1,7 +1,7 @@
 #' Creates a big number
 #'
 #' This function creates a trillion size number
-#' @param
+#' @param x a number
 #' @keywords trillion
 #' @export
 #' @examples

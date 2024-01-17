@@ -6,6 +6,9 @@
 \usage{
 remove_factors(df)
 }
+\arguments{
+\item{df}{a data frame}
+}
 \description{
 Removes all factors from a data frame
 }

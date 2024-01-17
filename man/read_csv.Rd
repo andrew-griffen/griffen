@@ -6,6 +6,9 @@
 \usage{
 read_csv(file, ..., show_col_types = FALSE)
 }
+\arguments{
+\item{file}{a csv file}
+}
 \description{
 Shuts up read_csv's incessant printing of crap
 }

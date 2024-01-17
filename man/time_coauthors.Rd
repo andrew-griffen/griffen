@@ -6,6 +6,9 @@
 \usage{
 time_coauthors(time)
 }
+\arguments{
+\item{time}{a date time}
+}
 \description{
 This function returns the current time of some of my co-authors
 }

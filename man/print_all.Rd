@@ -6,6 +6,9 @@
 \usage{
 print_all(df)
 }
+\arguments{
+\item{df}{a data frame}
+}
 \description{
 This function print all rows of a data frame
 }

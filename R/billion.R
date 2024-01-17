@@ -1,7 +1,7 @@
 #' Creates a big number
 #'
 #' This function creates a billion size number
-#' @param
+#' @param x a number
 #' @keywords billion
 #' @export
 #' @examples

@@ -6,6 +6,9 @@
 \usage{
 roundr(x)
 }
+\arguments{
+\item{x}{a number}
+}
 \description{
 custom rounding function: number of digits depends on size of number
 }

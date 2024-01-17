@@ -6,6 +6,9 @@
 \usage{
 billion(x)
 }
+\arguments{
+\item{x}{a number}
+}
 \description{
 This function creates a billion size number
 }

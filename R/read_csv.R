@@ -1,7 +1,7 @@
 #' mean function with na.rm = TRUE
 #'
 #' Shuts up read_csv's incessant printing of crap
-#' @param
+#' @param file a csv file
 #' @keywords read_csv na.rm
 #' @importFrom readr read_csv
 #' @export

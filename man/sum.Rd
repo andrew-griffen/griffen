@@ -6,8 +6,11 @@
 \usage{
 sum(x, ..., na.rm = TRUE)
 }
+\arguments{
+\item{x}{a number}
+}
 \description{
-Modifies nonsensical default behavior of these functions
+Modifies nonsensical default behavior of the sum function with respect to NA
 }
 \examples{
 sum(c(1,2,3,NA))

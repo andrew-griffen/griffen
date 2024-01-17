@@ -1,5 +1,5 @@
 #' Removes all factors from a data frame
-#' @param
+#' @param df a data frame
 #' @keywords factor killah
 #' @export
 #' @examples

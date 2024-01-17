@@ -6,8 +6,11 @@
 \usage{
 mean(x, ..., na.rm = TRUE)
 }
+\arguments{
+\item{x}{a number}
+}
 \description{
-Modifies nonsensical default behavior of these functions
+Modifies nonsensical default behavior of the mean function with respect to NA
 }
 \examples{
 mean(c(1,2,3,NA))

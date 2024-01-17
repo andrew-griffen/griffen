@@ -6,6 +6,9 @@
 \usage{
 left(df, ...)
 }
+\arguments{
+\item{df}{a data frame}
+}
 \value{
 data.frame
 }

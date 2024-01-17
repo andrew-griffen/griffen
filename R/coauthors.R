@@ -1,7 +1,7 @@
 #' A timezone function
 #'
 #' This function returns the current time of some of my co-authors
-#' @param
+#' @param time a date time
 #' @keywords coauthors timezone
 #' @importFrom lubridate with_tz is.POSIXct
 #' @export

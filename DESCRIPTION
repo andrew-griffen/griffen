@@ -3,11 +3,11 @@ Title: Some functions and data sets for teaching and research
 Version: 0.0.0.9000
 Authors@R:
     person("Andrew", "Griffen", , "andrew.griffen@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: Just some miscellaneous functions and data sets I use in my research and teaching.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends:
     dplyr, magrittr, lubridate, ggplot2, stringr, readr
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.0

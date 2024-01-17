@@ -6,6 +6,9 @@
 \usage{
 trillion(x)
 }
+\arguments{
+\item{x}{a number}
+}
 \description{
 This function creates a trillion size number
 }
