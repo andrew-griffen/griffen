@@ -78,3 +78,23 @@ as_vec <- function(vec, name = TRUE){
 }
 
 
+#' Prints a vector how you would write a vector (except named)
+#'
+#' @param vec a vector
+#' @keywords as_named_vec
+#' @export
+#' @examples
+#' as_named_vec(letters)
+as_named_vec <- function(vec){
+  vec_names = eval(substitute(vec))
+  cat("c(")
+  for (i in 1:length(vec)){
+    cat(paste0('\"',vec_names[i],'\"'),"=",vec[i])
+    if (i<length(vec)){
+      cat(", ")
+    }else{
+      cat(")")
+    }
+  }
+  cat("\n")
+}
