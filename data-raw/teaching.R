@@ -120,8 +120,6 @@ save_datasets(cps)
 credit <- read_csv("credit.csv")
 credit <- credit %>% mutate(default = factor(default))
 
-#oj
-oj <- read_csv("oj.csv")
 
 #boston
 boston <- read_csv("boston.csv")
@@ -164,7 +162,7 @@ coges = read_csv("coges.csv")
 
 
 save_datasets(x,y)
-save_datasets(boston,credit,form_df,heights,oj,post_bart,pre_bart,state_population,tbl1,tbl2,tbl3,tbl4,tbl5)
+save_datasets(boston,credit,form_df,heights,post_bart,pre_bart,state_population,tbl1,tbl2,tbl3,tbl4,tbl5)
 #save_datasets(oecd)
 save_datasets(whales)
 save_datasets(clark,coges)

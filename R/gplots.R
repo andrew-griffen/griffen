@@ -1,9 +1,11 @@
 #' A custom theme inspired by theme_ipsum
 #'
-#' This function print all rows of a data frame
+#' Some modifications to theme_ipsumo
 #' @keywords ggplot2, theme
 #' @importFrom ggplot2 theme element_text element_blank margin element_line ggplot geom_point aes
 #' @export
+#' @examples
+#' gtheme()
 
 gtheme <- function(base_family = "Arial Narrow", base_size = 14, legend = FALSE){
     thm = theme(axis.title.x = element_text(hjust = 1, size = base_size*.90, family = base_family))
@@ -37,7 +39,6 @@ gtheme <- function(base_family = "Arial Narrow", base_size = 14, legend = FALSE)
 #' Some custom color palettes
 #'
 #' Tired of ugly default colors in ggplot
-#' @param
 #' @keywords color, fill manual
 #' @export
 #' @examples

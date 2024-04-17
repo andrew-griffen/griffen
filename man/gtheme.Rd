@@ -7,7 +7,10 @@
 gtheme(base_family = "Arial Narrow", base_size = 14, legend = FALSE)
 }
 \description{
-This function print all rows of a data frame
+Some modifications to theme_ipsumo
+}
+\examples{
+gtheme()
 }
 \keyword{ggplot2,}
 \keyword{theme}
