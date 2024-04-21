@@ -110,11 +110,6 @@ post_bart <- post_bart %>% select(-u,-v,-e,-max_u) %>% ungroup
 pre_bart <- pre_bart %>% mutate(mode = factor(mode,levels=c("car","metro","bus")))
 post_bart <- post_bart %>% mutate(mode = factor(mode,levels=c("car","metro","bus")))
 
-#cps
-cps <- read_csv("cps.csv")
-cps <- cps[sample(1:nrow(cps),.2*nrow(cps)),]
-cps %<>% mutate(year = as.integer(year))
-save_datasets(cps)
 
 #credit scores
 credit <- read_csv("credit.csv")
