@@ -1,5 +1,8 @@
 library(pacman)
-p_load(tidyverse,dplyr,griffen,zoo,fExtremes,modelr,tidyverse,magrittr,sf)
+p_load(fExtremes, modelr, tidyverse, magrittr, sf)
+p_load(tidyverse)
+
+left <- griffen::left
 
 #save datasets into data folder
 save_datasets = function(...){
@@ -9,35 +12,7 @@ save_datasets = function(...){
   invisible(datasets_list)
 }
 
-filter <- dq8plyr::filter
-
-tbl1 <- tibble(id = c("1","2","3"), drew1 = c(1,2,3), drew2 = c(4,5,6), drew3 = c(7,8,9))
-tbl2 <- tibble(id = c(1,2,3), a = c(1,2,3), b = c(4,5,6) , c = c(7,8,9))
-tbl3 <- tibble(bla1l128a = c(1,2,3), id = c(1,2,3), ahfka1 = c(4,5,6), fdhsfka = c(7,8,9))
-tbl4 <- tibble(id = c(1,2,3), contribution_round1 = c(100,200,300), contribution_round2 = c(300,200,200))
-
-n <- 10
-rounds <- 100
-tbl5 <- matrix(100*round(runif(n*rounds,0,6)),n,rounds) %>% as.data.frame()
-names(tbl5) <- paste(rep("contribution_round",rounds),1:rounds,sep="")
-tbl5 <- as_tibble(tbl5)
-tbl5 <- tbl5 %>% mutate(id = 1:nrow(tbl5)) %>% left()
-
-
-state_population <- read_csv("state_population.csv")
-state_population <- state_population %>% pivot_longer(-c("state","region"),names_to="year",values_to="population")
-region <- state_population %>% select(state,region) %>% distinct()
-state_population <- state_population %>% select(-region)
-state_population <- state_population %>% mutate(year = as.integer(year))
-state_population <- state_population %>% select(state) %>% distinct() %>% crossing(tibble(year=1970:2014)) %>% full_join(state_population) %>% arrange(state,year)
-state_population <- state_population %>% dplyr::filter(year<=2010) %>% group_by(state) %>% mutate(population = na.approx(population,year))
-state_population <- state_population %>% left_join(region)
-
-n <- 3
-form_df <- tibble(y = round(10*runif(3)), x1 = round(10*runif(3)), x2 = round(10*runif(3)), D = c("treated","control","treated") )
-form_df <- form_df %>% mutate(D = factor(D))
-form_df <- form_df %>% mutate(D = fct_relevel(D,"treated"))
-
+# filter <- dplyr::filter
 # form_df <- tibble(y = c(1,2,3), x1 = c(1,6,1), x2 = c(6,1,4), D = c("treated","control","treated"))
 # form_df <- form_df %>% mutate(D = fct_relevel(D,"treatment"))
 
@@ -111,55 +86,29 @@ pre_bart <- pre_bart %>% mutate(mode = factor(mode,levels=c("car","metro","bus")
 post_bart <- post_bart %>% mutate(mode = factor(mode,levels=c("car","metro","bus")))
 
 
-#credit scores
-credit <- read_csv("credit.csv")
-credit <- credit %>% mutate(default = factor(default))
-
-
-#boston
-boston <- read_csv("boston.csv")
-
-#heights
-heights <- read_csv("heights.csv")
-
-x <- tibble(key = c(1,2,3), val_x = c("x1","x2","x3"))
-y <- tibble(key = c(1,2,4), val_y = c("y1","y2","y3"))
-
-
-
 japan_shp <- st_read('../../../Japan_Shapefiles/JPN_adm1.shp', stringsAsFactors = FALSE)
 japan_shp %<>% mutate(NAME_1=ifelse(NAME_1=="Naoasaki","Nagasaki",NAME_1))
 japan_shp %<>% mutate(NAME_1=ifelse(NAME_1=="Hyōgo","Hyogo",NAME_1))
 japan_shp %<>% mutate(prefecture = NAME_1)
 japan_shp %<>% select(prefecture,geometry)
 
-
 japan_travel <- read_csv("japan_travel.csv")
-japan_travel <- japan_travel %>% mutate(visited = ifelse(is.na(visited),"no","yes"))
-japan_travel$visited <- factor(japan_travel$visited,levels=c("yes","no"))
+japan_travel <- japan_travel %>% mutate(visited = ifelse(is.na(visited), "no", "yes"))
+japan_travel$visited <- factor(japan_travel$visited, levels = c("yes", "no"))
 
 
 # japan_shp <- japan_shp %>% left_join(japan_travel)
 # japan_shp$visited <- factor(japan_shp$visited,levels=c("yes","no"))
 
 
-whales <- read_csv("whales.csv")
-comment(whales) <- "Sperm whales Gulf of California 2007-2008"
-# whale <- read_csv("Sperm whales Gulf of California 2007-2008 - Argos data.csv")
-whales <- whales %>% mutate(date = as.Date(timestamp)) %>% left()
-whales <- whales %>% arrange(timestamp) %>% distinct(date,.keep_all=TRUE)
-whales %<>% rename(long = `location-long`, lat = `location-lat`, time = timestamp) %>% select(time,long,lat)
 
 #oecd <- read_csv("oecd.csv")
 
-clark = read_csv("clark.csv")
-coges = read_csv("coges.csv")
 
-
-save_datasets(x,y)
-save_datasets(boston,credit,form_df,heights,post_bart,pre_bart,state_population,tbl1,tbl2,tbl3,tbl4,tbl5)
-#save_datasets(oecd)
-save_datasets(whales)
-save_datasets(clark,coges)
+# save_datasets(x,y)
+# save_datasets(boston,credit,form_df,heights,post_bart,pre_bart,state_population,tbl1,tbl2,tbl3,tbl4,tbl5)
+# save_datasets(oecd)
+# save_datasets(whales)
+# save_datasets(clark, coges)
 save_datasets(japan_travel,japan_shp)
 
