@@ -86,15 +86,15 @@ pre_bart <- pre_bart %>% mutate(mode = factor(mode,levels=c("car","metro","bus")
 post_bart <- post_bart %>% mutate(mode = factor(mode,levels=c("car","metro","bus")))
 
 
-japan_shp <- st_read('../../../Japan_Shapefiles/JPN_adm1.shp', stringsAsFactors = FALSE)
-japan_shp %<>% mutate(NAME_1=ifelse(NAME_1=="Naoasaki","Nagasaki",NAME_1))
-japan_shp %<>% mutate(NAME_1=ifelse(NAME_1=="Hyōgo","Hyogo",NAME_1))
-japan_shp %<>% mutate(prefecture = NAME_1)
-japan_shp %<>% select(prefecture,geometry)
+# japan_shp <- st_read('../../../Japan_Shapefiles/JPN_adm1.shp', stringsAsFactors = FALSE)
+# japan_shp %<>% mutate(NAME_1=ifelse(NAME_1=="Naoasaki","Nagasaki",NAME_1))
+# japan_shp %<>% mutate(NAME_1=ifelse(NAME_1=="Hyōgo","Hyogo",NAME_1))
+# japan_shp %<>% mutate(prefecture = NAME_1)
+# japan_shp %<>% select(prefecture, geometry)
 
-japan_travel <- read_csv("japan_travel.csv")
-japan_travel <- japan_travel %>% mutate(visited = ifelse(is.na(visited), "no", "yes"))
-japan_travel$visited <- factor(japan_travel$visited, levels = c("yes", "no"))
+# japan_travel <- read_csv("japan_travel.csv")
+# japan_travel <- japan_travel %>% mutate(visited = ifelse(is.na(visited), "no", "yes"))
+# japan_travel$visited <- factor(japan_travel$visited, levels = c("yes", "no"))
 
 
 # japan_shp <- japan_shp %>% left_join(japan_travel)
@@ -110,5 +110,5 @@ japan_travel$visited <- factor(japan_travel$visited, levels = c("yes", "no"))
 # save_datasets(oecd)
 # save_datasets(whales)
 # save_datasets(clark, coges)
-save_datasets(japan_travel,japan_shp)
+# save_datasets(japan_travel,japan_shp)
 
