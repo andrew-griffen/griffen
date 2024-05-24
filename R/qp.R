@@ -1,10 +1,12 @@
 #' Keeps track of question points
 #'
-#' This moves either var or the last column to the first column
+#' I use this for homeworks because I can assign points 
+#' and it will print a formatted number of points as well
+#' as keep track of a running total.
 #' @importFrom R6 R6Class
 #' @export
 
-QuestionPoints <- R6Class("QuestionPoints",
+qp <- R6Class("QuestionPoints",
   public = list(
     points = NULL,
     initialize = function(points = NA) {
