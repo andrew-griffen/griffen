@@ -17,6 +17,13 @@
 #' @param include_partial_slides Should partial (continuation) slides be
 #'   included in the output? If `FALSE`, the default, only the complete slide
 #'   is included in the PDF.
+#' @export
+#' @importFrom progress progress_bar
+#' @importFrom fs path_ext_set path_ext path_abs file_delete
+#' @importFrom chromote ChromoteSession
+#' @importFrom digest digest
+#' @importFrom jsonlite base64_dec
+#' @importFrom pdftools pdf_combine
 
 to_pdf <- function(
   input,
@@ -24,15 +31,16 @@ to_pdf <- function(
   delay = 1,
   include_partial_slides = FALSE
 ) {
-  if (!requireNamespace("chromote", quietly = TRUE)) {
-    stop("`chromote` is required: devtools::install_github('rstudio/chromote')")
-  }
-  required_packages <- c("progress", "jsonlite", "pdftools", "digest", "fs")
-  for (pkg in required_packages) {
-    if (!requireNamespace(pkg, quietly = TRUE)) {
-      stop("`", pkg, "` is required: install.packages('", pkg, "')")
-    }
-  }
+
+  # if (!requireNamespace("chromote", quietly = TRUE)) {
+  #   stop("`chromote` is required: devtools::install_github('rstudio/chromote')")
+  # }
+  # required_packages <- c("progress", "jsonlite", "pdftools", "digest", "fs")
+  # for (pkg in required_packages) {
+  #   if (!requireNamespace(pkg, quietly = TRUE)) {
+  #     stop("`", pkg, "` is required: install.packages('", pkg, "')")
+  #   }
+  # }
 
   is_url <- grepl("^(ht|f)tp", tolower(input))
 
@@ -177,4 +185,5 @@ to_pdf <- function(
 
   invisible(output_file)
 }
+
 
