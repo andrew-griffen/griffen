@@ -5,6 +5,6 @@
 #' @keywords billion
 #' @export
 #' @examples
-#' billion(1)
+#' billion()
 
-billion <- function(x){x*1000000000}
+billion <- function(x = 1){x*1000000000}

@@ -4,7 +4,7 @@
 \alias{billion}
 \title{Creates a big number}
 \usage{
-billion(x)
+billion(x = 1)
 }
 \arguments{
 \item{x}{a number}
@@ -13,6 +13,6 @@ billion(x)
 This function creates a billion size number
 }
 \examples{
-billion(1)
+billion()
 }
 \keyword{billion}

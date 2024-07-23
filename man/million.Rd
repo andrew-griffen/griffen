@@ -4,7 +4,7 @@
 \alias{million}
 \title{Creates a big number}
 \usage{
-million(x)
+million(x = 1)
 }
 \arguments{
 \item{x}{a number}
@@ -13,6 +13,6 @@ million(x)
 This function creates a million size number
 }
 \examples{
-million(1)
+million()
 }
 \keyword{million}

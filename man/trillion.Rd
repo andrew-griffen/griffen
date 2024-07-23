@@ -4,7 +4,7 @@
 \alias{trillion}
 \title{Creates a big number}
 \usage{
-trillion(x)
+trillion(x = 1)
 }
 \arguments{
 \item{x}{a number}
@@ -13,6 +13,6 @@ trillion(x)
 This function creates a trillion size number
 }
 \examples{
-trillion(1)
+trillion()
 }
 \keyword{trillion}

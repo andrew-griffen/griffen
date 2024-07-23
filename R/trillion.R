@@ -5,7 +5,7 @@
 #' @keywords trillion
 #' @export
 #' @examples
-#' trillion(1)
+#' trillion()
 
-trillion <- function(x){x*1000000000000}
+trillion <- function(x = 1){x*1000000000000}
 
