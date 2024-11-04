@@ -5,7 +5,7 @@ NULL
 #'
 #' @param df A data frame.
 #' @param ... Some variables.
-#' @importFrom dplyr mutate select summarise arrange group_by n
+#' @importFrom dplyr mutate select summarise arrange group_by n is_grouped_df
 #' @export
 #' @return data frame
 #' @examples
