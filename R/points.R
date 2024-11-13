@@ -15,8 +15,9 @@ points <- R6Class("points", list(
   p = function(x) {
     self$count()
     self$total <- self$total + x 
-    cat(self$i, ". (", x, " points)\n",sep="")
-    invisible(self)
+    p = paste0(self$i, ". (", x, " points)",sep="")
+    return(p)
   }
   )
 )
+
