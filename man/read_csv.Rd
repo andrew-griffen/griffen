@@ -4,13 +4,13 @@
 \alias{read_csv}
 \title{mean function with na.rm = TRUE}
 \usage{
-read_csv(file, ..., show_col_types = FALSE)
+read_csv(file, ..., show_col_types = FALSE, progress = FALSE)
 }
 \arguments{
 \item{file}{a csv file}
 }
 \description{
-Shuts up read_csv's incessant printing of crap
+Tries to shuts up read_csv's incessant printing of crap
 }
 \keyword{na.rm}
 \keyword{read_csv}
