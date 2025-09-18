@@ -9,12 +9,12 @@ points <- R6Class("points", list(
   total = 0,
   i = 0,
   count = function(x = 1) {
-    self$i <- self$i + 1 
+    self$i <- self$i + 1
     invisible(self)
   },
   p = function(x) {
     self$count()
-    self$total <- self$total + x 
+    self$total <- self$total + x
     if (x==1){
       p = paste0(self$i, ". (", x, " point)",sep="")
     }else{

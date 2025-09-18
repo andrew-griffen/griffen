@@ -1,7 +1,7 @@
 #' sum function with na.rm = TRUE
 #'
-#' Modifies nonsensical default behavior of the sum function with respect to NA
-#' @param x a number
+#' Modifies nonsensical default behavior of these functions
+#' @param
 #' @keywords sum na.rm
 #' @export
 #' @examples
